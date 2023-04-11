@@ -10,12 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State private var checkAmount = 0.0
     @State private var numberOfPeople = 2
-    @State private var tipPercentage = 2
+    @State private var tipPercentage = 0
     @FocusState private var amountIsFocused: Bool
     
-    let tipPercentages = [10, 15, 20, 25, 0]
     let currencyCode = Locale.current.currency?.identifier ?? "USD"
-    
     var totalPerPerson: Double {
         let peopleCount = Double(numberOfPeople + 2)
         let tipSelection = Double(tipPercentage)
@@ -26,7 +24,7 @@ struct ContentView: View {
         
         return amountPerPerson
     }
-    
+
     var body: some View {
         NavigationView {
             Form {
@@ -44,17 +42,24 @@ struct ContentView: View {
                 
                 Section {
                     Picker("Tip percentage", selection: $tipPercentage) {
-                        ForEach(tipPercentages, id: \.self) {
+                        ForEach(0...100, id: \.self) {
                             Text($0, format: .percent)
                         }
                     }
-                    .pickerStyle(.segmented)
                 } header: {
                     Text("How much tip do you want to leave?")
                 }
                 
                 Section {
-                    Text(totalPerPerson , format: .currency(code: currencyCode))
+                    Text(totalPerPerson, format: .currency(code: currencyCode))
+                } header: {
+                    Text("Amount per person")
+                }
+                
+                Section {
+                    Text(totalPerPerson * Double(numberOfPeople + 2), format: .currency(code: currencyCode))
+                } header: {
+                    Text("Total amount")
                 }
             }
             .navigationTitle("WeSplit")
