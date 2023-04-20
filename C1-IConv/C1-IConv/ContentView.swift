@@ -8,14 +8,70 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+    @State private var thermometricScaleInput = "Celsius"
+    @State private var thermometricScaleOutput = "Celsius"
+    @State private var value = ""
+    @FocusState private var inputIsFocused: Bool
+    let thermometricScales = ["Celsius", "Fahrenheit", "Kelvin"]
+    
+    var result: Double {
+        if value.isEmpty { return 0 }
+        
+        var celsiusValue: Double
+        
+        switch thermometricScaleInput {
+        case "Fahrenheit":
+            celsiusValue = (Double(value)! - 32) / 1.8
+        case "Kelvin":
+            celsiusValue = Double(value)! - 273.15
+        default:
+            celsiusValue = Double(value)!
         }
-        .padding()
+        
+        switch thermometricScaleOutput {
+        case "Fahrenheit":
+            return (celsiusValue * 1.8) + 32
+        case "Kelvin":
+            return celsiusValue + 273.15
+        default:
+            return celsiusValue
+        }
+    }
+    
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                
+                Picker("Convert from", selection: $thermometricScaleInput) {
+                    ForEach(thermometricScales, id: \.self) { item in
+                        Text(item)
+                    }
+                }
+                
+                Picker("To", selection: $thermometricScaleOutput) {
+                    ForEach(thermometricScales, id: \.self) { item in
+                        Text(item)
+                    }
+                }
+                
+                TextField("Enter a value to convert", text: $value)
+                    .keyboardType(.decimalPad)
+                    .focused($inputIsFocused)
+                
+                Text("Result: \(result.formatted())")
+            }
+            .navigationTitle("IConv")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    
+                    Button("Done") {
+                        inputIsFocused = false
+                    }
+                }
+            }
+        }
     }
 }
 
