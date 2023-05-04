@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var checkAmount = 0.0
     @State private var numberOfPeople = 2
-    @State private var tipPercentage = 0
+    @State private var tipPercentage = 5
     @FocusState private var amountIsFocused: Bool
     
     let currencyCode = Locale.current.currency?.identifier ?? "USD"
@@ -58,6 +58,7 @@ struct ContentView: View {
                 
                 Section {
                     Text(totalPerPerson * Double(numberOfPeople + 2), format: .currency(code: currencyCode))
+                        .foregroundColor(tipPercentage == 0 ? .red : .black)
                 } header: {
                     Text("Total amount")
                 }
