@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0AC1F542A1D6D4000EDF9D2 /* ListExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AC1F532A1D6D4000EDF9D2 /* ListExpense.swift */; };
 		C0C68C172A1BD7F200C7EF30 /* IExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C68C162A1BD7F200C7EF30 /* IExpenseApp.swift */; };
 		C0C68C192A1BD7F200C7EF30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C68C182A1BD7F200C7EF30 /* ContentView.swift */; };
 		C0C68C1B2A1BD7F300C7EF30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C68C1A2A1BD7F300C7EF30 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0AC1F532A1D6D4000EDF9D2 /* ListExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListExpense.swift; sourceTree = "<group>"; };
 		C0C68C132A1BD7F200C7EF30 /* IExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C68C162A1BD7F200C7EF30 /* IExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IExpenseApp.swift; sourceTree = "<group>"; };
 		C0C68C182A1BD7F200C7EF30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				C0C68C162A1BD7F200C7EF30 /* IExpenseApp.swift */,
 				C0C68C182A1BD7F200C7EF30 /* ContentView.swift */,
+				C0AC1F532A1D6D4000EDF9D2 /* ListExpense.swift */,
 				C0C68C282A1BDF9000C7EF30 /* AddView.swift */,
 				C0C68C242A1BD8D800C7EF30 /* ExpenseItem.swift */,
 				C0C68C262A1BD95900C7EF30 /* Expenses.swift */,
@@ -150,6 +153,7 @@
 				C0C68C192A1BD7F200C7EF30 /* ContentView.swift in Sources */,
 				C0C68C292A1BDF9000C7EF30 /* AddView.swift in Sources */,
 				C0C68C252A1BD8D800C7EF30 /* ExpenseItem.swift in Sources */,
+				C0AC1F542A1D6D4000EDF9D2 /* ListExpense.swift in Sources */,
 				C0C68C172A1BD7F200C7EF30 /* IExpenseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,23 +11,17 @@ struct ContentView: View {
     @StateObject var expenses = Expenses()
     @State private var showingAddExpense = false
     
+    let userCurrencyCode = Locale.current.currency?.identifier ?? "USD"
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
-                        }
-                        
-                        Spacer()
-                        
-                        Text(item.amount, format: .currency(code: "USD"))
+            Form {
+                List {
+                    ForEach(expenses.items) {
+                        ListExpense(expense: $0, userCurrencyCode: userCurrencyCode, amountTextColor: amountTextColor($0.amount))
                     }
+                    .onDelete(perform: removeItems)
                 }
-                .onDelete(perform: removeItems)
             }
             .navigationTitle("IExpense")
             .toolbar {
@@ -38,13 +32,27 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $showingAddExpense) {
-                AddView(expenses: expenses)
+                AddView(expenses: expenses, userCurrencyCode: userCurrencyCode)
             }
         }
     }
     
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
+    }
+    
+    func amountTextColor(_ amount: Double) -> Color {
+        var textColor: Color
+        
+        if amount <= 10 {
+            textColor = Color.green
+        } else if amount <= 100 {
+            textColor = Color.yellow
+        } else {
+            textColor = Color.red
+        }
+        
+        return textColor
     }
 }
 
