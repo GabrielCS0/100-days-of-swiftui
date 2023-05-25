@@ -25,11 +25,16 @@ struct MissionView: View {
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.6)
                         .padding(.top)
+                    
+                    Text(mission.formattedLaunchDateForMissionView)
+                        .font(.footnote)
+                        .foregroundColor(.white.opacity(0.7))
+                        .padding(.top, 10)
 
                     VStack(alignment: .leading) {
-                        Rectangle()
+                        Divider()
                             .frame(height: 2)
-                            .foregroundColor(.lightBackground)
+                            .overlay(.lightBackground)
                             .padding(.top)
                         
                         Text("Mission Highlights")
@@ -38,16 +43,17 @@ struct MissionView: View {
                         
                         Text(mission.description)
                         
-                        Rectangle()
+                        Divider()
                             .frame(height: 2)
-                            .foregroundColor(.lightBackground)
+                            .overlay(.lightBackground)
                             .padding(.vertical)
                         
                         Text("Crew")
                             .font(.title.bold())
-                            .padding(.bottom, 5)
                     }
                     .padding(.horizontal)
+                    
+                    
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
@@ -106,7 +112,7 @@ struct MissionView_Previews: PreviewProvider {
     static let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     
     static var previews: some View {
-        MissionView(mission: missions[0], astronauts: astronauts)
+        MissionView(mission: missions[1], astronauts: astronauts)
             .preferredColorScheme(.dark)
     }
 }
