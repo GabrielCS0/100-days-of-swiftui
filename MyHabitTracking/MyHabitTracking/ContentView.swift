@@ -8,14 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var activities = Activities()
+    @State private var showingAddActivity = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List {
+                ForEach(activities.habits) { habit in
+                    NavigationLink {
+                        HabitDetailView(activities: activities, habit: habit)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(habit.name)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                            Text(habit.description)
+                                .font(.system(size: 15))
+                            Text("Completed \(habit.NumberOfTimesCompleted) times")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                }
+                .onDelete(perform: removeHabit)
+            }
+            .preferredColorScheme(.dark)
+            .navigationTitle("Habits")
+            .toolbar {
+                Button {
+                    showingAddActivity = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $showingAddActivity) {
+                AddActivity(activities: activities)
+            }
         }
-        .padding()
+    }
+    
+    func removeHabit(at offsets: IndexSet) {
+        activities.habits.remove(atOffsets: offsets)
     }
 }
 
