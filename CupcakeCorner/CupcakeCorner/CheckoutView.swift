@@ -10,8 +10,11 @@ import SwiftUI
 struct CheckoutView: View {
     @ObservedObject var order: Order
     
+    @State private var confirmationTitle = ""
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+    
+    let currencyCode = Locale.current.currency?.identifier ?? "USD"
     
     var body: some View {
         ScrollView {
@@ -25,7 +28,7 @@ struct CheckoutView: View {
                 }
                 .frame(height: 233)
                 
-                Text("Your total is \(order.cost, format: .currency(code: "USD"))")
+                Text("Your total is \(order.info.cost, format: .currency(code: currencyCode))")
                     .font(.title)
                 
                 Button("Place order") {
@@ -36,7 +39,7 @@ struct CheckoutView: View {
         }
         .navigationTitle("Check out")
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Thank you!", isPresented: $showingConfirmation) {
+        .alert(confirmationTitle, isPresented: $showingConfirmation) {
             Button("Ok") {}
         } message: {
             Text(confirmationMessage)
@@ -44,7 +47,7 @@ struct CheckoutView: View {
     }
     
     func placeOrder() async {
-        guard let encoded = try? JSONEncoder().encode(order) else {
+        guard let encoded = try? JSONEncoder().encode(order.info) else {
             print("Failed to encode order.")
             return
         }
@@ -57,11 +60,14 @@ struct CheckoutView: View {
         do {
             let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
             
-            let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
-            confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on it's way!"
+            let decodedOrder = try JSONDecoder().decode(OrderInfo.self, from: data)
+            confirmationTitle = "Thank you!"
+            confirmationMessage = "Your order for \(decodedOrder.quantity)x \(OrderInfo.types[decodedOrder.type].lowercased()) cupcakes is on it's way!"
             showingConfirmation = true
         } catch {
-            print("Checkout failed.")
+            confirmationTitle = "Sorry"
+            confirmationMessage = "There was an error processing your order, please try again later!"
+            showingConfirmation = true
         }
     }
 }
@@ -69,7 +75,7 @@ struct CheckoutView: View {
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CheckoutView(order: Order())
+            CheckoutView(order: Order(info: OrderInfo()))
         }
     }
 }
