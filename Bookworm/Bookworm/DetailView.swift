@@ -22,22 +22,37 @@ struct DetailView: View {
                     .resizable()
                     .scaledToFit()
                 
-                Text(book.genre?.uppercased() ?? "FANTASY")
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.white)
-                    .background(.black.opacity(0.75))
-                    .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
+                HStack {
+                    Text(book.date?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")
+                        .font(.caption2)
+                        .fontWeight(.black)
+                        .foregroundColor(.white)
+                        .background(.black.opacity(0.9))
+                        .padding(6)
+                        .offset(y: 5)
+                    
+                    Spacer()
+                    
+                    Text(book.genre?.uppercased() ?? "FANTASY")
+                        .font(.caption)
+                        .fontWeight(.black)
+                        .padding(8)
+                        .foregroundColor(.white)
+                        .background(.black.opacity(0.75))
+                        .clipShape(Capsule())
+                        .offset(x: -5, y: -5)
+                }
             }
             
             Text(book.author ?? "Unknown author")
                 .font(.title)
                 .foregroundColor(.secondary)
+                .padding(.bottom)
             
-            Text(book.review ?? "No review")
-                .padding()
+            if book.review?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false {
+                Text(book.review ?? "No review")
+                    .padding(.bottom)
+            }
             
             RatingView(rating: .constant(Int(book.rating)))
                 .font(.largeTitle)

@@ -17,6 +17,8 @@ struct AddBookView: View {
     @State private var genre = "Fantasy"
     @State private var review = ""
     
+    @State private var showingMissingTitleAlert = false
+    
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
     var body: some View {
@@ -41,23 +43,40 @@ struct AddBookView: View {
                 }
                 
                 Section {
-                    Button("Save") {
-                        let newBook = Book(context: moc)
-                        newBook.id = UUID()
-                        newBook.title = title
-                        newBook.author = author
-                        newBook.rating = Int16(rating)
-                        newBook.genre = genre
-                        newBook.review = review
-
-                        try? moc.save()
-                        
-                        dismiss()
-                    }
+                    Button("Save", action: saveBook)
                 }
             }
             .navigationTitle("Add Book")
         }
+        .alert("Missing book's title", isPresented: $showingMissingTitleAlert) {
+            Button("Ok") { }
+        } message: {
+            Text("You must provide the name of the book!")
+        }
+    }
+    
+    func saveBook() {
+        if title.trimmingCharacters(in: .whitespaces).isEmpty {
+            showingMissingTitleAlert = true
+            return
+        }
+        
+        if author.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            author = "Unknown author"
+        }
+        
+        let newBook = Book(context: moc)
+        newBook.id = UUID()
+        newBook.title = title
+        newBook.author = author
+        newBook.rating = Int16(rating)
+        newBook.genre = genre
+        newBook.review = review
+        newBook.date = Date.now
+
+        try? moc.save()
+        
+        dismiss()
     }
 }
 
