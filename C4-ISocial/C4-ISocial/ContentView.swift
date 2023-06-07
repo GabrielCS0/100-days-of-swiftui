@@ -8,14 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = UserViewModel()
+    @State private var showingFetchUsersErrorAlert = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List(viewModel.users) { user in
+                NavigationLink {
+                    UserDetailView(user: user)
+                } label: {
+                    VStack(alignment: .leading) {
+                        Text(user.name)
+                            .padding(.bottom, 0.5)
+                        
+                        Text(user.isActive ? "Online" : "Offline")
+                            .foregroundColor(user.isActive ? .green : .red)
+                            .font(.footnote)
+                            .fontWeight(.bold)
+                    }
+                }
+            }
+            .navigationTitle("ISocial")
         }
-        .padding()
+        .task {
+            do {
+                try await viewModel.fetchUsers()
+            } catch {
+                showingFetchUsersErrorAlert = true
+            }
+        }
+        .alert("Sorry", isPresented: $showingFetchUsersErrorAlert) {
+            Button("Ok") {}
+        } message: {
+            Text("There was an error loading users, please try again later.")
+        }
     }
 }
 
