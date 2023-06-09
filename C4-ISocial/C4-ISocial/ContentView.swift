@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: [
+        NSSortDescriptor(key: "isActive", ascending: false)
+    ]) var users: FetchedResults<CachedUser>
+    
+    @State private var showingUsersRequestWarningAlert = false
     @StateObject private var viewModel = UserViewModel()
-    @State private var showingFetchUsersErrorAlert = false
     
     var body: some View {
         NavigationView {
-            List(viewModel.users) { user in
+            List(users) { user in
                 NavigationLink {
                     UserDetailView(user: user)
                 } label: {
                     VStack(alignment: .leading) {
-                        Text(user.name)
+                        Text(user.wrappedName)
                             .padding(.bottom, 0.5)
                         
                         Text(user.isActive ? "Online" : "Offline")
@@ -33,14 +38,51 @@ struct ContentView: View {
         .task {
             do {
                 try await viewModel.fetchUsers()
+                await saveUsersToCoreData(users: viewModel.users)
             } catch {
-                showingFetchUsersErrorAlert = true
+                showingUsersRequestWarningAlert = true
             }
         }
-        .alert("Sorry", isPresented: $showingFetchUsersErrorAlert) {
+        .alert("Sorry", isPresented: $showingUsersRequestWarningAlert) {
             Button("Ok") {}
         } message: {
-            Text("There was an error loading users, please try again later.")
+            Text("There was a problem loading the current user list, please try again later.")
+        }
+    }
+    
+    func saveUsersToCoreData(users: [User]) async {
+        await MainActor.run {
+            var cachedUsers = [CachedUser(context: moc)]
+            var cachedFriends = [CachedFriend(context: moc)]
+            
+            for user in users {
+                let userTags = user.tags.joined(separator: ",")
+                
+                let newUser = CachedUser(context: moc)
+                newUser.id = user.id
+                newUser.isActive = user.isActive
+                newUser.name = user.name
+                newUser.age = Int16(user.age)
+                newUser.company = user.company
+                newUser.email = user.email
+                newUser.address = user.address
+                newUser.about = user.about
+                newUser.registered = user.registered
+                newUser.tags = userTags
+                
+                for friend in user.friends {
+                    let newFriend = CachedFriend(context: moc)
+                    newFriend.id = friend.id
+                    newFriend.name = friend.name
+                    
+                    cachedFriends.append(newFriend)
+                    newUser.addToFriends(newFriend)
+                }
+                
+                cachedUsers.append(newUser)
+            }
+            
+            try? moc.save()
         }
     }
 }

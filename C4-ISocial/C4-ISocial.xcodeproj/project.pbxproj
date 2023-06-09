@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C005DD902A31094D001C2740 /* ISocial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C005DD8E2A31094D001C2740 /* ISocial.xcdatamodeld */; };
+		C005DD922A310EB6001C2740 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005DD912A310EB6001C2740 /* DataController.swift */; };
+		C005DD972A3137DA001C2740 /* CachedUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005DD932A3137DA001C2740 /* CachedUser+CoreDataClass.swift */; };
+		C005DD982A3137DA001C2740 /* CachedUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005DD942A3137DA001C2740 /* CachedUser+CoreDataProperties.swift */; };
+		C005DD992A3137DA001C2740 /* CachedFriend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005DD952A3137DA001C2740 /* CachedFriend+CoreDataClass.swift */; };
+		C005DD9A2A3137DA001C2740 /* CachedFriend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005DD962A3137DA001C2740 /* CachedFriend+CoreDataProperties.swift */; };
 		C071800C2A2E2C2000545822 /* C4_ISocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071800B2A2E2C2000545822 /* C4_ISocialApp.swift */; };
 		C071800E2A2E2C2000545822 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071800D2A2E2C2000545822 /* ContentView.swift */; };
 		C07180102A2E2C2200545822 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C071800F2A2E2C2200545822 /* Assets.xcassets */; };
@@ -17,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C005DD8F2A31094D001C2740 /* ISocial.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ISocial.xcdatamodel; sourceTree = "<group>"; };
+		C005DD912A310EB6001C2740 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		C005DD932A3137DA001C2740 /* CachedUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C005DD942A3137DA001C2740 /* CachedUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C005DD952A3137DA001C2740 /* CachedFriend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C005DD962A3137DA001C2740 /* CachedFriend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C07180082A2E2C2000545822 /* C4-ISocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C4-ISocial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C071800B2A2E2C2000545822 /* C4_ISocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C4_ISocialApp.swift; sourceTree = "<group>"; };
 		C071800D2A2E2C2000545822 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,11 +69,17 @@
 		C071800A2A2E2C2000545822 /* C4-ISocial */ = {
 			isa = PBXGroup;
 			children = (
+				C005DD932A3137DA001C2740 /* CachedUser+CoreDataClass.swift */,
+				C005DD942A3137DA001C2740 /* CachedUser+CoreDataProperties.swift */,
+				C005DD952A3137DA001C2740 /* CachedFriend+CoreDataClass.swift */,
+				C005DD962A3137DA001C2740 /* CachedFriend+CoreDataProperties.swift */,
 				C071800B2A2E2C2000545822 /* C4_ISocialApp.swift */,
 				C071800D2A2E2C2000545822 /* ContentView.swift */,
 				C071801D2A2E5CE900545822 /* UserDetailView.swift */,
+				C005DD912A310EB6001C2740 /* DataController.swift */,
 				C071801B2A2E341900545822 /* UserViewModel.swift */,
 				C07180192A2E2D0000545822 /* User.swift */,
+				C005DD8E2A31094D001C2740 /* ISocial.xcdatamodeld */,
 				C071800F2A2E2C2200545822 /* Assets.xcassets */,
 				C07180112A2E2C2200545822 /* Preview Content */,
 			);
@@ -146,10 +164,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C005DD922A310EB6001C2740 /* DataController.swift in Sources */,
 				C071800E2A2E2C2000545822 /* ContentView.swift in Sources */,
 				C071801C2A2E341900545822 /* UserViewModel.swift in Sources */,
 				C071800C2A2E2C2000545822 /* C4_ISocialApp.swift in Sources */,
+				C005DD972A3137DA001C2740 /* CachedUser+CoreDataClass.swift in Sources */,
+				C005DD9A2A3137DA001C2740 /* CachedFriend+CoreDataProperties.swift in Sources */,
 				C071801E2A2E5CE900545822 /* UserDetailView.swift in Sources */,
+				C005DD902A31094D001C2740 /* ISocial.xcdatamodeld in Sources */,
+				C005DD982A3137DA001C2740 /* CachedUser+CoreDataProperties.swift in Sources */,
+				C005DD992A3137DA001C2740 /* CachedFriend+CoreDataClass.swift in Sources */,
 				C071801A2A2E2D0000545822 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +375,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C005DD8E2A31094D001C2740 /* ISocial.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C005DD8F2A31094D001C2740 /* ISocial.xcdatamodel */,
+			);
+			currentVersion = C005DD8F2A31094D001C2740 /* ISocial.xcdatamodel */;
+			path = ISocial.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C07180002A2E2C2000545822 /* Project object */;
 }
