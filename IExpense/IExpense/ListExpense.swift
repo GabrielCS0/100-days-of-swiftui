@@ -19,11 +19,15 @@ struct ListExpense: View {
                     .font(.headline)
                 Text(expense.type)
             }
+            .accessibilityElement()
+            .accessibilityLabel("\(expense.name), \(expense.amount, format: .currency(code: userCurrencyCode))")
+            .accessibilityHint(expense.type)
             
             Spacer()
             
             Text(expense.amount, format: .currency(code: userCurrencyCode))
                 .foregroundColor(amountTextColor)
+                .accessibilityHidden(true)
         }
     }
 }
