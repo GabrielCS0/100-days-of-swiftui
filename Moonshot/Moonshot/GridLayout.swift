@@ -23,7 +23,7 @@ struct GridLayout: View {
                         MissionView(mission: mission, astronauts: astronauts)
                     } label: {
                         VStack {
-                            Image(mission.image)
+                            Image(decorative: mission.image)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)

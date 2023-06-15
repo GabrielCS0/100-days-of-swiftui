@@ -20,7 +20,7 @@ struct MissionView: View {
         GeometryReader { geometry in
             ScrollView {
                 VStack {
-                    Image(mission.image)
+                    Image(decorative: mission.image)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.6)
@@ -62,7 +62,7 @@ struct MissionView: View {
                                     AstronautView(astronaut: crewMember.astronaut)
                                 } label: {
                                     HStack {
-                                        Image(crewMember.astronaut.id)
+                                        Image(decorative: crewMember.astronaut.id)
                                             .resizable()
                                             .frame(width: 104, height: 72)
                                             .clipShape(Capsule())

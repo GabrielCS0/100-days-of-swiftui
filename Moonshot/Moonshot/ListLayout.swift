@@ -16,7 +16,7 @@ struct ListLayout: View {
             NavigationLink {
                 MissionView(mission: mission, astronauts: astronauts)
             } label: {
-                Image(mission.image)
+                Image(decorative: mission.image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 75, height: 75)
