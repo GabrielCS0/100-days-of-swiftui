@@ -8,14 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ViewModel()
+    @State private var showingAddContactSheet = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            List(viewModel.contacts) { contact in
+                NavigationLink {
+                    ContactDetailsView(contact: contact)
+                } label: {
+                    Image(uiImage: contact.picture)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 75)
+                        .padding(.trailing)
+                    
+                    Text(contact.name)
+                        .font(.headline)
+                }
+            }
+            .navigationTitle("Eventfy")
+            .toolbar {
+                Button {
+                    showingAddContactSheet = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $showingAddContactSheet) {
+                AddContactView { newContact in
+                    viewModel.saveContact(contact: newContact)
+                }
+            }
         }
-        .padding()
     }
 }
 

@@ -11,6 +11,13 @@
 		C067EEA92A3B8A710058C41A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067EEA82A3B8A710058C41A /* ContentView.swift */; };
 		C067EEAB2A3B8A720058C41A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C067EEAA2A3B8A720058C41A /* Assets.xcassets */; };
 		C067EEAE2A3B8A720058C41A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C067EEAD2A3B8A720058C41A /* Preview Assets.xcassets */; };
+		C067EEB52A3B8B520058C41A /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067EEB42A3B8B520058C41A /* ContentView-ViewModel.swift */; };
+		C067EEB72A3B8D310058C41A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067EEB62A3B8D310058C41A /* ImagePicker.swift */; };
+		C067EEB92A3B8DC20058C41A /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067EEB82A3B8DC20058C41A /* AddContactView.swift */; };
+		C067EEC42A3BBE550058C41A /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067EEC32A3BBE550058C41A /* FileManager-DocumentsDirectory.swift */; };
+		C0C5FE2C2A3E43FB00FA7C45 /* ContactDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C5FE2B2A3E43FB00FA7C45 /* ContactDetailsView.swift */; };
+		C0D2CE942A3CA873004F7753 /* AddContactView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2CE932A3CA873004F7753 /* AddContactView-ViewModel.swift */; };
+		C0D2CE962A3CADF3004F7753 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D2CE952A3CADF3004F7753 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		C067EEA82A3B8A710058C41A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C067EEAA2A3B8A720058C41A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C067EEAD2A3B8A720058C41A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C067EEB42A3B8B520058C41A /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		C067EEB62A3B8D310058C41A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C067EEB82A3B8DC20058C41A /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		C067EEC32A3BBE550058C41A /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
+		C0C5FE2B2A3E43FB00FA7C45 /* ContactDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsView.swift; sourceTree = "<group>"; };
+		C0D2CE932A3CA873004F7753 /* AddContactView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddContactView-ViewModel.swift"; sourceTree = "<group>"; };
+		C0D2CE952A3CADF3004F7753 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +67,13 @@
 			children = (
 				C067EEA62A3B8A710058C41A /* C5_EventfyApp.swift */,
 				C067EEA82A3B8A710058C41A /* ContentView.swift */,
+				C0C5FE2B2A3E43FB00FA7C45 /* ContactDetailsView.swift */,
+				C067EEB82A3B8DC20058C41A /* AddContactView.swift */,
+				C0D2CE932A3CA873004F7753 /* AddContactView-ViewModel.swift */,
+				C067EEB42A3B8B520058C41A /* ContentView-ViewModel.swift */,
+				C0D2CE952A3CADF3004F7753 /* Contact.swift */,
+				C067EEC32A3BBE550058C41A /* FileManager-DocumentsDirectory.swift */,
+				C067EEB62A3B8D310058C41A /* ImagePicker.swift */,
 				C067EEAA2A3B8A720058C41A /* Assets.xcassets */,
 				C067EEAC2A3B8A720058C41A /* Preview Content */,
 			);
@@ -137,7 +158,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0D2CE962A3CADF3004F7753 /* Contact.swift in Sources */,
+				C0C5FE2C2A3E43FB00FA7C45 /* ContactDetailsView.swift in Sources */,
 				C067EEA92A3B8A710058C41A /* ContentView.swift in Sources */,
+				C0D2CE942A3CA873004F7753 /* AddContactView-ViewModel.swift in Sources */,
+				C067EEB72A3B8D310058C41A /* ImagePicker.swift in Sources */,
+				C067EEC42A3BBE550058C41A /* FileManager-DocumentsDirectory.swift in Sources */,
+				C067EEB92A3B8DC20058C41A /* AddContactView.swift in Sources */,
+				C067EEB52A3B8B520058C41A /* ContentView-ViewModel.swift in Sources */,
 				C067EEA72A3B8A710058C41A /* C5_EventfyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

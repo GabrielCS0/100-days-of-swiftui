@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContactDetailsView: View {
+    let contact: Contact
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct ContactDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactDetailsView()
+        VStack {
+            Image(uiImage: contact.picture)
+                .resizable()
+                .scaledToFit()
+        }
+        .navigationTitle(contact.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
