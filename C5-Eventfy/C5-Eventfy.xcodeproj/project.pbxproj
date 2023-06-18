@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02E2CD72A3FC44B00347F7A /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E2CD62A3FC44B00347F7A /* LocationFetcher.swift */; };
 		C067EEA72A3B8A710058C41A /* C5_EventfyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067EEA62A3B8A710058C41A /* C5_EventfyApp.swift */; };
 		C067EEA92A3B8A710058C41A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067EEA82A3B8A710058C41A /* ContentView.swift */; };
 		C067EEAB2A3B8A720058C41A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C067EEAA2A3B8A720058C41A /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C02E2CD62A3FC44B00347F7A /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		C067EEA32A3B8A710058C41A /* C5-Eventfy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C5-Eventfy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C067EEA62A3B8A710058C41A /* C5_EventfyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C5_EventfyApp.swift; sourceTree = "<group>"; };
 		C067EEA82A3B8A710058C41A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				C0D2CE952A3CADF3004F7753 /* Contact.swift */,
 				C067EEC32A3BBE550058C41A /* FileManager-DocumentsDirectory.swift */,
 				C067EEB62A3B8D310058C41A /* ImagePicker.swift */,
+				C02E2CD62A3FC44B00347F7A /* LocationFetcher.swift */,
 				C067EEAA2A3B8A720058C41A /* Assets.xcassets */,
 				C067EEAC2A3B8A720058C41A /* Preview Content */,
 			);
@@ -160,6 +163,7 @@
 			files = (
 				C0D2CE962A3CADF3004F7753 /* Contact.swift in Sources */,
 				C0C5FE2C2A3E43FB00FA7C45 /* ContactDetailsView.swift in Sources */,
+				C02E2CD72A3FC44B00347F7A /* LocationFetcher.swift in Sources */,
 				C067EEA92A3B8A710058C41A /* ContentView.swift in Sources */,
 				C0D2CE942A3CA873004F7753 /* AddContactView-ViewModel.swift in Sources */,
 				C067EEB72A3B8D310058C41A /* ImagePicker.swift in Sources */,
@@ -298,6 +302,7 @@
 				DEVELOPMENT_TEAM = Z9J9U96FB7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want to use your location to remind you of event locations!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +332,7 @@
 				DEVELOPMENT_TEAM = Z9J9U96FB7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We want to use your location to remind you of event locations!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
