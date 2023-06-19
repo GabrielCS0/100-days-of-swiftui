@@ -9,6 +9,7 @@ import Foundation
 
 extension ContentView {
     @MainActor class ViewModel: ObservableObject {
+        @Published var showingAddContactSheet = false
         @Published var contacts = [Contact]()
         
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedContacts")

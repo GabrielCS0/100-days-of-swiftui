@@ -54,6 +54,7 @@ struct AddContactView: View {
                 ImagePicker(image: $viewModel.inputImage)
             }
             .onChange(of: viewModel.inputImage) { _ in loadImage() }
+            .onAppear { viewModel.locationFetcher.start() }
             .toolbar {
                 Button("Save") {
                     if let newContact = viewModel.createContact() {

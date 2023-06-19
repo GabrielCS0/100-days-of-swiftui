@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
-    @State private var showingAddContactSheet = false
     
     var body: some View {
         NavigationView {
@@ -30,12 +29,12 @@ struct ContentView: View {
             .navigationTitle("Eventfy")
             .toolbar {
                 Button {
-                    showingAddContactSheet = true
+                    viewModel.showingAddContactSheet = true
                 } label: {
                     Image(systemName: "plus")
                 }
             }
-            .sheet(isPresented: $showingAddContactSheet) {
+            .sheet(isPresented: $viewModel.showingAddContactSheet) {
                 AddContactView { newContact in
                     viewModel.saveContact(contact: newContact)
                 }

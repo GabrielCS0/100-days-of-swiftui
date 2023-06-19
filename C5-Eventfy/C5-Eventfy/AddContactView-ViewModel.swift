@@ -15,6 +15,8 @@ extension AddContactView {
         
         @Published var showingImagePicker = false
         @Published var showingEmptyFieldError = false
+        
+        let locationFetcher = LocationFetcher()
                 
         func createContact() -> Contact? {
             guard let inputImage = inputImage else {
@@ -27,7 +29,9 @@ extension AddContactView {
                 return nil
             }
             
-            let contact = Contact(name: name, picture: inputImage)
+            let eventLocation = Coordinate(locationFetcher.lastKnownLocation)
+            let contact = Contact(name: name, picture: inputImage, eventLocation: eventLocation)
+            
             return contact
         }
     }
