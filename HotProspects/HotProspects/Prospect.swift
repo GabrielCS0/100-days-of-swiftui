@@ -7,36 +7,66 @@
 
 import SwiftUI
 
-class Prospect: Identifiable, Codable {
+class Prospect: Identifiable, Codable, Comparable {
     var id = UUID()
     var name = "Anonymous"
     var emailAddress = ""
     fileprivate(set) var isContacted = false
+    
+    private(set) var date = Date()
+    
+    static func <(lhs: Prospect, rhs: Prospect) -> Bool {
+        return lhs.name < rhs.name
+    }
+    
+    static func ==(lhs: Prospect, rhs: Prospect) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
 @MainActor class Prospects: ObservableObject {
+    enum SortType {
+        case name, latest
+    }
+    
     @Published private(set) var people: [Prospect]
-    let saveKey = "SavedData"
+    
+    let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedProspects")
+    var sortType: SortType = .latest
+    
     
     init() {
-        if let data = UserDefaults.standard.data(forKey: saveKey) {
-            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
-                people = decoded
-                return
-            }
+        do {
+            let data = try Data(contentsOf: savePath)
+            people = try JSONDecoder().decode([Prospect].self, from: data)
+        } catch {
+            people = []
         }
-        
-        people = []
     }
     
     private func save() {
-        if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.set(encoded, forKey: saveKey)
+        do {
+            let data = try JSONEncoder().encode(people)
+            try data.write(to: savePath, options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            print("Unable to save data")
         }
     }
     
     func add(_ prospect: Prospect) {
         people.append(prospect)
+        sortType == .latest ? sortByLatest() : sortByName()
+    }
+    
+    func sortByLatest() {
+        sortType = .latest
+        people.sort { $0.date > $1.date }
+        save()
+    }
+    
+    func sortByName() {
+        sortType = .name
+        people.sort()
         save()
     }
     

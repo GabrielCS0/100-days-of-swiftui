@@ -33,6 +33,7 @@ struct MeView: View {
                     .interpolation(.none)
                     .scaledToFit()
                     .frame(width: 200, height: 200)
+                    .padding(.top)
                     .contextMenu {
                         Button {
                             let imageSaver = ImageSaver()
