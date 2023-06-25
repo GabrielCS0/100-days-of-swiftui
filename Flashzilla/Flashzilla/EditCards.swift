@@ -31,8 +31,6 @@ struct EditCards: View {
                             
                             Text(cards[index].answer)
                                 .foregroundColor(.secondary)
-                            
-                            
                         }
                     }
                     .onDelete(perform: removeCards)
@@ -48,6 +46,7 @@ struct EditCards: View {
     }
     
     func done() {
+        addCard()
         dismiss()
     }
     
@@ -66,13 +65,16 @@ struct EditCards: View {
     }
     
     func addCard() {
-        let trimmedPrompt = newPrompt.trimmingCharacters(in: .whitespacesAndNewlines)
-        let trimmedAnswer = newAnswer.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedPrompt = newPrompt.trimmingCharacters(in: .whitespaces)
+        let trimmedAnswer = newAnswer.trimmingCharacters(in: .whitespaces)
         guard trimmedPrompt.isEmpty == false && trimmedAnswer.isEmpty == false else { return }
         
         let card = Card(prompt: trimmedPrompt, answer: trimmedAnswer)
         cards.insert(card, at: 0)
         saveData()
+        
+        newPrompt = ""
+        newAnswer = ""
     }
     
     func removeCards(at offsets: IndexSet) {

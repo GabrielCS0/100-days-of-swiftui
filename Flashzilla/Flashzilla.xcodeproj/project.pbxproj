@@ -59,9 +59,9 @@
 			children = (
 				C0CC2DE92A45EAFC000BD90C /* FlashzillaApp.swift */,
 				C0CC2DEB2A45EAFC000BD90C /* ContentView.swift */,
-				C0CC2DF72A45EC5F000BD90C /* Card.swift */,
-				C0CC2DFB2A465621000BD90C /* EditCards.swift */,
 				C0CC2DF92A45EE24000BD90C /* CardView.swift */,
+				C0CC2DFB2A465621000BD90C /* EditCards.swift */,
+				C0CC2DF72A45EC5F000BD90C /* Card.swift */,
 				C0CC2DED2A45EAFD000BD90C /* Assets.xcassets */,
 				C0CC2DEF2A45EAFD000BD90C /* Preview Content */,
 			);

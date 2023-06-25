@@ -11,10 +11,10 @@ struct CardView: View {
     let card: Card
     var removal: (() -> Void)? = nil
     
-    @State private var feedback = UINotificationFeedbackGenerator()
-    
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityVoiceOverEnabled) var voiceOverEnabled
+    
+    @State private var feedback = UINotificationFeedbackGenerator()
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
     

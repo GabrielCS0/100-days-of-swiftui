@@ -17,14 +17,13 @@ extension View {
 struct ContentView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityVoiceOverEnabled) var voiceOverEnabled
+    @Environment(\.scenePhase) var scenePhase
     
     @State private var cards = [Card]()
     @State private var timeRemaining = 100
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    @Environment(\.scenePhase) var scenePhase
     @State private var isActive = false
-    
     @State private var showingEditScreen = false
     
     var body: some View {
@@ -57,6 +56,8 @@ struct ContentView: View {
                 .allowsHitTesting(timeRemaining > 0)
                 
                 if cards.isEmpty {
+                    VStack {}.padding()
+                    
                     Button("Start Again", action: resetCards)
                         .padding()
                         .background(.white)
