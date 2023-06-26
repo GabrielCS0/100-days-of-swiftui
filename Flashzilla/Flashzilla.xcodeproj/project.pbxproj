@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C05A4BE52A4A057F00AFA59A /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05A4BE42A4A057F00AFA59A /* FileManager-DocumentsDirectory.swift */; };
 		C0CC2DEA2A45EAFC000BD90C /* FlashzillaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC2DE92A45EAFC000BD90C /* FlashzillaApp.swift */; };
 		C0CC2DEC2A45EAFC000BD90C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC2DEB2A45EAFC000BD90C /* ContentView.swift */; };
 		C0CC2DEE2A45EAFD000BD90C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CC2DED2A45EAFD000BD90C /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C05A4BE42A4A057F00AFA59A /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		C0CC2DE62A45EAFC000BD90C /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CC2DE92A45EAFC000BD90C /* FlashzillaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashzillaApp.swift; sourceTree = "<group>"; };
 		C0CC2DEB2A45EAFC000BD90C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				C0CC2DF92A45EE24000BD90C /* CardView.swift */,
 				C0CC2DFB2A465621000BD90C /* EditCards.swift */,
 				C0CC2DF72A45EC5F000BD90C /* Card.swift */,
+				C05A4BE42A4A057F00AFA59A /* FileManager-DocumentsDirectory.swift */,
 				C0CC2DED2A45EAFD000BD90C /* Assets.xcassets */,
 				C0CC2DEF2A45EAFD000BD90C /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05A4BE52A4A057F00AFA59A /* FileManager-DocumentsDirectory.swift in Sources */,
 				C0CC2DEC2A45EAFC000BD90C /* ContentView.swift in Sources */,
 				C0CC2DF82A45EC5F000BD90C /* Card.swift in Sources */,
 				C0CC2DFA2A45EE24000BD90C /* CardView.swift in Sources */,

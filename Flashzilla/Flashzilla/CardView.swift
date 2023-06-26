@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     let card: Card
-    var removal: (() -> Void)? = nil
+    var removal: () -> Void
     
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityVoiceOverEnabled) var voiceOverEnabled
@@ -30,7 +30,7 @@ struct CardView: View {
                     differentiateWithoutColor
                     ? nil
                     : RoundedRectangle(cornerRadius: 25, style: .continuous)
-                        .fill(offset.width > 0 ? .green : .red)
+                        .fill(backgroundColor(offset: offset))
                 )
                 .shadow(radius: 10)
             
@@ -71,7 +71,7 @@ struct CardView: View {
                             feedback.notificationOccurred(.error)
                         }
                         
-                        removal?()
+                        removal()
                     } else {
                         offset = .zero
                     }
@@ -82,10 +82,22 @@ struct CardView: View {
         }
         .animation(.spring(), value: offset)
     }
+    
+    func backgroundColor(offset: CGSize) -> Color {
+        if offset.width > 0 {
+            return . green
+        }
+        
+        if offset.width < 0 {
+            return .red
+        }
+        
+        return .white
+    }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: Card.example)
+        CardView(card: Card.example) {}
     }
 }
