@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C02B68FA2A4B363100822260 /* RollDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C02B68FA2A4B363100822260 /* C6-RollDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C6-RollDice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02B68FD2A4B363100822260 /* RollDiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollDiceApp.swift; sourceTree = "<group>"; };
 		C02B68FF2A4B363100822260 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C02B69012A4B363200822260 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 		C02B68F12A4B363100822260 = {
 			isa = PBXGroup;
 			children = (
-				C02B68FC2A4B363100822260 /* RollDice */,
+				C02B68FC2A4B363100822260 /* C6-RollDice */,
 				C02B68FB2A4B363100822260 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,12 +51,12 @@
 		C02B68FB2A4B363100822260 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C02B68FA2A4B363100822260 /* RollDice.app */,
+				C02B68FA2A4B363100822260 /* C6-RollDice.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C02B68FC2A4B363100822260 /* RollDice */ = {
+		C02B68FC2A4B363100822260 /* C6-RollDice */ = {
 			isa = PBXGroup;
 			children = (
 				C02B68FD2A4B363100822260 /* RollDiceApp.swift */,
@@ -68,7 +68,7 @@
 				C02B69012A4B363200822260 /* Assets.xcassets */,
 				C02B69032A4B363200822260 /* Preview Content */,
 			);
-			path = RollDice;
+			path = "C6-RollDice";
 			sourceTree = "<group>";
 		};
 		C02B69032A4B363200822260 /* Preview Content */ = {
@@ -82,9 +82,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C02B68F92A4B363100822260 /* RollDice */ = {
+		C02B68F92A4B363100822260 /* C6-RollDice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C02B69082A4B363200822260 /* Build configuration list for PBXNativeTarget "RollDice" */;
+			buildConfigurationList = C02B69082A4B363200822260 /* Build configuration list for PBXNativeTarget "C6-RollDice" */;
 			buildPhases = (
 				C02B68F62A4B363100822260 /* Sources */,
 				C02B68F72A4B363100822260 /* Frameworks */,
@@ -94,9 +94,9 @@
 			);
 			dependencies = (
 			);
-			name = RollDice;
+			name = "C6-RollDice";
 			productName = RollDice;
-			productReference = C02B68FA2A4B363100822260 /* RollDice.app */;
+			productReference = C02B68FA2A4B363100822260 /* C6-RollDice.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +127,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C02B68F92A4B363100822260 /* RollDice */,
+				C02B68F92A4B363100822260 /* C6-RollDice */,
 			);
 		};
 /* End PBXProject section */
@@ -282,7 +282,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RollDice/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"C6-RollDice/Preview Content\"";
 				DEVELOPMENT_TEAM = Z9J9U96FB7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -311,7 +311,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RollDice/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"C6-RollDice/Preview Content\"";
 				DEVELOPMENT_TEAM = Z9J9U96FB7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -345,7 +345,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C02B69082A4B363200822260 /* Build configuration list for PBXNativeTarget "RollDice" */ = {
+		C02B69082A4B363200822260 /* Build configuration list for PBXNativeTarget "C6-RollDice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C02B69092A4B363200822260 /* Debug */,
