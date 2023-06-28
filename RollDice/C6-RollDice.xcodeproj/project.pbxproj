@@ -11,6 +11,10 @@
 		C02B69002A4B363100822260 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B68FF2A4B363100822260 /* ContentView.swift */; };
 		C02B69022A4B363200822260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02B69012A4B363200822260 /* Assets.xcassets */; };
 		C02B69052A4B363200822260 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02B69042A4B363200822260 /* Preview Assets.xcassets */; };
+		C02B690C2A4B524A00822260 /* DiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B690B2A4B524900822260 /* DiceResult.swift */; };
+		C02B690E2A4B569A00822260 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B690D2A4B569A00822260 /* ContentView-ViewModel.swift */; };
+		C02B69102A4B5A3A00822260 /* PreviousResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B690F2A4B5A3A00822260 /* PreviousResultsView.swift */; };
+		C02B69142A4B5AC400822260 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02B69132A4B5AC400822260 /* FileManager-DocumentsDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		C02B68FF2A4B363100822260 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C02B69012A4B363200822260 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C02B69042A4B363200822260 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C02B690B2A4B524900822260 /* DiceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceResult.swift; sourceTree = "<group>"; };
+		C02B690D2A4B569A00822260 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		C02B690F2A4B5A3A00822260 /* PreviousResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousResultsView.swift; sourceTree = "<group>"; };
+		C02B69132A4B5AC400822260 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,10 @@
 			children = (
 				C02B68FD2A4B363100822260 /* RollDiceApp.swift */,
 				C02B68FF2A4B363100822260 /* ContentView.swift */,
+				C02B690F2A4B5A3A00822260 /* PreviousResultsView.swift */,
+				C02B69132A4B5AC400822260 /* FileManager-DocumentsDirectory.swift */,
+				C02B690D2A4B569A00822260 /* ContentView-ViewModel.swift */,
+				C02B690B2A4B524900822260 /* DiceResult.swift */,
 				C02B69012A4B363200822260 /* Assets.xcassets */,
 				C02B69032A4B363200822260 /* Preview Content */,
 			);
@@ -102,7 +114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C02B68F52A4B363100822260 /* Build configuration list for PBXProject "RollDice" */;
+			buildConfigurationList = C02B68F52A4B363100822260 /* Build configuration list for PBXProject "C6-RollDice" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -138,6 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02B69002A4B363100822260 /* ContentView.swift in Sources */,
+				C02B69142A4B5AC400822260 /* FileManager-DocumentsDirectory.swift in Sources */,
+				C02B69102A4B5A3A00822260 /* PreviousResultsView.swift in Sources */,
+				C02B690E2A4B569A00822260 /* ContentView-ViewModel.swift in Sources */,
+				C02B690C2A4B524A00822260 /* DiceResult.swift in Sources */,
 				C02B68FE2A4B363100822260 /* RollDiceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +336,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C02B68F52A4B363100822260 /* Build configuration list for PBXProject "RollDice" */ = {
+		C02B68F52A4B363100822260 /* Build configuration list for PBXProject "C6-RollDice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C02B69062A4B363200822260 /* Debug */,

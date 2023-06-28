@@ -8,14 +8,53 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                Spacer()
+                
+                VStack {
+                    Text("Result:")
+                        .font(.title)
+                        
+                    
+                    if let resultNumber = viewModel.diceResult?.number {
+                        Text(resultNumber, format: .number)
+                            .font(.title)
+                    } else { Text("") }
+                }
+                
+                Spacer()
+                
+                Button("Roll Dice") { viewModel.rollDice() }
+                    .padding()
+                    .background(.green)
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .cornerRadius(12)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewModel.isShowingPreviousResultsScreen = true
+                    } label: {
+                        Label("Previous Results", systemImage: "pencil.circle")
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Number of sides: \(viewModel.numberOfSides)")
+                        .font(.callout)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .sheet(isPresented: $viewModel.isShowingPreviousResultsScreen) {
+                PreviousResultsView(diceResults: viewModel.diceResults, selectedNumberOfSides: $viewModel.numberOfSides)
+            }
+            .onAppear { viewModel.feedback.prepare() }
         }
-        .padding()
     }
 }
 
