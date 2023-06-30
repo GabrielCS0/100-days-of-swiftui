@@ -9,17 +9,24 @@ import Foundation
 
 class Favorites: ObservableObject {
     private var resorts: Set<String>
-    private let saveKey = "Favorites"
+    private let savePath = FileManager.documentsDirectory.appendingPathComponent("Favorites")
     
     init() {
-        if let favoritesData = UserDefaults.standard.data(forKey: saveKey) {
-            if let favorites = try? JSONDecoder().decode(Set<String>.self, from: favoritesData) {
-                resorts = favorites
-                return
-            }
+        do {
+            let favoritesData = try Data(contentsOf: savePath)
+            resorts = try JSONDecoder().decode(Set<String>.self, from: favoritesData)
+        } catch {
+            resorts = []
         }
-        
-        resorts = []
+    }
+    
+    func save() {
+        do {
+            let favoritesData = try JSONEncoder().encode(resorts)
+            try favoritesData.write(to: savePath, options: [.atomicWrite, .completeFileProtection])
+        } catch {
+            print("Unable to save data.")
+        }
     }
     
     func contains(_ resort: Resort) -> Bool {
@@ -36,11 +43,5 @@ class Favorites: ObservableObject {
         objectWillChange.send()
         resorts.remove(resort.id)
         save()
-    }
-    
-    func save() {
-        if let favoritesEncoded = try? JSONEncoder().encode(resorts) {
-            UserDefaults.standard.set(favoritesEncoded, forKey: saveKey)
-        }
     }
 }
